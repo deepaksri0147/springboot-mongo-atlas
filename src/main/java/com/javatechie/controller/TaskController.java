@@ -15,10 +15,18 @@ public class TaskController {
     @Autowired
     private TaskService service;
 
-    @PostMapping
+      @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Task createTask(@RequestBody Task task){
-        return service.addTask(task);
+    public String createTask(@RequestBody Task task) throws InterruptedException{
+         service.addTask(task);
+         return "process sent";
+    }
+    
+    
+    @PostMapping("/delay")
+    public String delayTask(@RequestBody Task task) throws InterruptedException{
+         service.delayTaskservice(task);
+         return "process delayed";
     }
 
     @GetMapping
