@@ -17,9 +17,27 @@ public class TaskService {
     //CRUD  CREATE , READ , UPDATE , DELETE
 
 
-    public Task addTask(Task task) {
-        task.setTaskId(UUID.randomUUID().toString().split("-")[0]);
-        return repository.save(task);
+       public String addTask(Task task) throws InterruptedException {
+    	for(int i=0; i<10;i++) {
+    		Thread.sleep(10000);
+    		task.setTaskId(UUID.randomUUID().toString().split("-")[0]);
+    		task.setSeverity(i);
+    		repository.save(task);
+    		System.out.println(i);
+    	}
+        
+        return "processes sucessfully";
+    }
+    
+    
+    public String delayTaskservice(Task task) throws InterruptedException {
+   	task.setTaskId(UUID.randomUUID().toString().split("-")[0]);
+    	for(int i=0; i<15;i++) {
+    		Thread.sleep(5000);
+    		System.out.println(i);
+    	}
+    	repository.save(task);
+        return "processes sucessfully";
     }
 
     public List<Task> findAllTasks() {
