@@ -4,7 +4,7 @@ spring:
       uri : mongodb+srv://root:123456Ab@gaian.lz8kfnr.mongodb.net/?retryWrites=true&w=majority
       database : Task
   lifecycle:
-    timeout-per-shutdown-phase : 45s
+    timeout-per-shutdown-phase : 30s
     
 server:
   shutdown : graceful
