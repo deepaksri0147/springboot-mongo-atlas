@@ -1,5 +1,10 @@
 spring:
   data:
     mongodb:
-      uri : mongodb+srv://admin:admin@javatechie.0ev8qfe.mongodb.net/?retryWrites=true&w=majority
+      uri : mongodb+srv://root:123456Ab@gaian.lz8kfnr.mongodb.net/?retryWrites=true&w=majority
       database : Task
+  lifecycle:
+    timeout-per-shutdown-phase : 45s
+    
+server:
+  shutdown : graceful
